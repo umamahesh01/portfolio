@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uma Mahesh Reddy | Data Analyst</title>
+    <title>Uma Mahesh Reddy | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header class="hero">
         <div class="container">
-            <h1 class="name">Hi, I'm <span>Uma Mahesh Reddy</span></h1>
+            <h1 class="name">Uma Mahesh Reddy</h1>
             <p class="subtitle">
-                <span id="animated-text"></span>
+                <span class="typing">I'm a Data Scientist</span>
             </p>
-            <a href="#projects" class="btn">View My Work</a>
         </div>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Add the rest of your sections here -->
 
     <footer>
         <p>&copy; 2024 Uma Mahesh Reddy. All Rights Reserved.</p>
     </footer>
 
-    <!-- Include Typed.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-
-    <!-- Custom script for the animation -->
     <script>
-        // Typed.js animation
-        var typed = new Typed('#animated-text', {
-            strings: ["I'm a Data Scientist", "I'm a Data Analyst"],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
-    </script>
-</body>
-</html>
+        const words = ["I'm a Data Scientist", "I'm a Data Analyst"];
+        let i = 0;
+        let j = 0;
+        let currentWord = "";
+        const typingElement = document.querySelector('.typing');
 
-    </footer>
+        function typeEffect() {
+            if (j < words[i].length) {
+                currentWord += words[i][j];
+                typingElement.textContent = currentWord;
+                j++;
+                setTimeout(typeEffect, 100);
+            } else {
+                setTimeout(deleteEffect, 1000);
+            }
+        }
+
+        function deleteEffect() {
+            if (j > 0) {
+                currentWord = currentWord.slice(0, -1);
+                typingElement.textContent = currentWord;
+                j--;
+                setTimeout(deleteEffect, 100);
+            } else {
+                i = (i + 1) % words.length;
+                setTimeout(typeEffect, 500);
+            }
+        }
+
+        typeEffect();
+    </script>
 </body>
 </html>
