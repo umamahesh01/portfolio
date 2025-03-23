@@ -35,7 +35,7 @@ body {
     position: absolute; /* Enable absolute positioning for the "Hi" */
     top: -50px; /* Move "Hi" upwards to the circle's position */
     left: -30px; /* Adjust this value for horizontal alignment */
-    background-color: #1e90ff; /* Blue background for the circle */
+    background-color: #6b3ce8; /* Blue background for the circle */
     color: #ffffff; /* White text for "Hi" */
     border-radius: 50%; /* Make the container circular */
     width: 80px; /* Adjust width of the circle */
