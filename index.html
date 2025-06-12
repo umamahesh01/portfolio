@@ -161,37 +161,46 @@
         <p>&copy; 2024 Uma Mahesh Reddy. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const words = ["I'm a Data Scientist", "I'm a Data Analyst"];
-        let i = 0;
-        let j = 0;
-        let currentWord = "";
-        const typingElement = document.querySelector('.typing');
+<script>
+    const roles = ["Data Scientist", "Data Analyst"];
+    const prefix = "I'm a ";
+    let typingElement = document.querySelector('.typing');
 
-        function typeEffect() {
-            if (j < words[i].length) {
-                currentWord += words[i][j];
-                typingElement.textContent = currentWord;
-                j++;
-                setTimeout(typeEffect, 100);
-            } else {
-                setTimeout(deleteEffect, 1000);
-            }
+    let currentRoleIndex = 0;
+    let currentText = "";
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const fullText = roles[currentRoleIndex];
+        const displayText = isDeleting
+            ? fullText.substring(0, charIndex--)
+            : fullText.substring(0, charIndex++);
+
+        typingElement.textContent = prefix + displayText;
+
+        let delay = 100;
+
+        if (isDeleting) {
+            delay = 60;
         }
 
-        function deleteEffect() {
-            if (j > 0) {
-                currentWord = currentWord.slice(0, -1);
-                typingElement.textContent = currentWord;
-                j--;
-                setTimeout(deleteEffect, 100);
-            } else {
-                i = (i + 1) % words.length;
-                setTimeout(typeEffect, 500);
-            }
+        if (!isDeleting && charIndex === fullText.length + 1) {
+            delay = 1200;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 4) {
+            // Stop at "I'm a D"
+            delay = 400;
+            isDeleting = false;
+            currentRoleIndex = (currentRoleIndex + 1) % roles.length;
         }
 
-        typeEffect();
-    </script>
+        setTimeout(typeEffect, delay);
+    }
+
+    typeEffect();
+</script>
+
+    
 </body>
 </html>
