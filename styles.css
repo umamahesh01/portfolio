@@ -1,150 +1,144 @@
-/* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #000000; /* Uniform dark black background */
-    color: #e91e63;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #000;
+  color: #e91e63;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Header Styling */
 .hero {
-    text-align: center;
-    background: #000000; /* Uniform dark black */
-    
-    padding-top: 30px;
-    padding-right: 20px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-
-    width: 100%;
-    border-bottom: none; /* Removed pink line */
+  text-align: center;
+  background: #000;
+  padding: 30px 20px 5px;
+  width: 100%;
 }
-
-
-.intro {
-    position: relative; /* Set this to relative for proper positioning of children */
-    display: inline-block;
-}
-
-.hi-container {
-    position: absolute; /* Enable absolute positioning for the "Hi" */
-    top: -50px; /* Move "Hi" upwards to the circle's position */
-    left: -30px; /* Adjust this value for horizontal alignment */
-    background-color: #6b3ce8; /* Blue background for the circle */
-    color: #ffffff; /* White text for "Hi" */
-    border-radius: 50%; /* Make the container circular */
-    width: 80px; /* Adjust width of the circle */
-    height: 80px; /* Adjust height of the circle */
-    display: flex; /* Center the text inside the circle */
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem; /* Adjust font size */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for the circle */
-}
-
-
-
 
 .name {
-    font-size: 3rem;
-    color: #ffffff; /* White color for your name */
-    font-weight: bold;
-    margin: 0;
-    margin-top: 20px; /* Space above the name */
+  font-size: 3rem;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    color: #00e676; /* Light green for subtitle */
-    margin-top: 10px;
+  font-size: 1.5rem;
+  color: #00e676;
+  margin-top: 10px;
 }
 
 .typing {
-    color: #ffffff;
-    font-weight: 500;
-    margin-top: 5px;
+  color: #fff;
+  font-weight: 500;
 }
 
-/* Section Styling */
 section {
-    padding: 40px 20px;
-    width: 100%;
-    background: #121212; /* Slightly lighter black for section backgrounds */
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  padding: 40px 20px;
+  width: 100%;
+  background: #121212;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
 }
 
 section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00e676; /* Light green for headings */
-    text-align: center;
-    border-bottom: 2px solid #e91e63; /* Pink underline */
-    padding-bottom: 10px;
-    display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00e676;
+  text-align: center;
+  border-bottom: 2px solid #e91e63;
+  padding-bottom: 10px;
+  display: inline-block;
 }
 
 section ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 section ul li {
-    font-size: 1.2rem;
-    margin: 5px 0;
-    color: #ffffff; /* White text for lists */
+  font-size: 1.2rem;
+  margin: 5px 0;
+  color: #fff;
 }
 
-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ffffff; /* White text for paragraphs */
+section p, .project-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
 }
 
-/* Projects Section Styling */
-section ul li a {
-    color: #00e676; /* Light green for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-section ul li a:hover {
-    text-decoration: underline;
-    color: #e91e63; /* Pink hover effect */
-}
-
-/* Footer Styling */
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #121212;
-    width: 100%;
-    font-size: 0.8rem;
-    color: #999;
-    border-top: 2px solid #e91e63; /* Pink top border for footer */
+  text-align: center;
+  padding: 20px;
+  background: #121212;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 2px solid #e91e63;
 }
 
-/* Responsive Design */
+/* Project Cards */
+.project-card {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px #000;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.project-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.project-info a {
+  color: #00e676;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.project-info a:hover {
+  text-decoration: underline;
+  color: #e91e63;
+}
+
 @media (max-width: 768px) {
-    .name {
-        font-size: 2.5rem;
-    }
+  .name {
+    font-size: 2.2rem;
+  }
 
-    .subtitle {
-        font-size: 1.2rem;
-    }
+  .subtitle {
+    font-size: 1.2rem;
+  }
 
-    section h2 {
-        font-size: 1.8rem;
-    }
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    section ul li {
-        font-size: 1rem;
-    }
+  .project-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section ul li {
+    font-size: 1rem;
+  }
 }
